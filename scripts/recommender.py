@@ -6,6 +6,15 @@ from tensorflow.keras.models import load_model
 import google.generativeai as genai
 import joblib
 from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variable
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
 class HealthRecommender:
     def __init__(self,lstm_model_Path,xgb_model_Path,lstm_scaler_Path,xgb_scaler_Path):
         from tensorflow.keras.losses import MeanSquaredError
@@ -166,7 +175,7 @@ class HealthRecommender:
         risk_info = self.classify_risk(health_data)
 
         try:
-            genai.configure(api_key="AIzaSyCTw17MjvPUGZ6_1gIPLarQCcR8cB_A9O4")
+            genai.configure(api_key=GEMINI_API_KEY)
 
             # System instruction with expanded guidelines
             system_instruction = {
