@@ -6,6 +6,11 @@
 ### **Overview**
 HealthSphere is a machine learning-powered clinical decision support system designed to predict diabetes risk and provide personalized health recommendations. It leverages advanced AI models and healthcare guidelines to assist users in managing their metabolic health effectively.
 
+---
+
+Project Demo:https://youtu.be/eKJrDBX-v30
+---
+
 ### **Features**
 - **Risk Assessment**: Predicts diabetes risk levels (Normal, Warning, Critical) using XGBoost.
 - **Glucose Prediction**: Forecasts glucose trends using LSTM based on historical readings.
@@ -84,10 +89,7 @@ HealthSphere/
 └── README.md                           # Project documentation (this file)
 ```
 
----
 
-Project Demo:https://youtu.be/eKJrDBX-v30
----
 
 ### **Screenshots**
 #### Risk Assessment Section:
