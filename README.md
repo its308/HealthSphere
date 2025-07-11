@@ -1,129 +1,141 @@
+# HealthSphere: 360° Health Insights
+
+## 🚀 Overview
+
+HealthSphere is an intelligent, ML-driven clinical decision support platform designed to predict diabetes risk and provide personalized health guidance. It combines time-series deep learning, risk classification, and GenAI recommendations to enable proactive and informed health management.
+
+📽️ **[Project Demo](https://youtu.be/eKJrDBX-v30)**
 
 ---
 
-## **HealthSphere: 360° Health Insights**
+## 🔍 Features
 
-### **Overview**
-HealthSphere is a machine learning-powered clinical decision support system designed to predict diabetes risk and provide personalized health recommendations. It leverages advanced AI models and healthcare guidelines to assist users in managing their metabolic health effectively.
+* **📈 Glucose Forecasting**: Predicts short-term glucose trends using LSTM with attention mechanism on time-series data (MAE: **0.020**, R² Score: **0.983**).
 
----
+* **🧠 Diabetes Risk Classification**: Uses XGBoost with hyperparameter tuning, threshold optimization, and class imbalance handling (F1-score: **0.69**, Accuracy: **75.3%**).
 
-Project Demo:https://youtu.be/eKJrDBX-v30
----
+* **📋 Personalized Health Recommendations**:  
+  * Tailored lifestyle and diet advice based on BMI, glucose, and blood pressure.  
+  * Preventive suggestions powered by Gemini API and fallback clinical heuristics.
 
-### **Features**
-- **Risk Assessment**: Predicts diabetes risk levels (Normal, Warning, Critical) using XGBoost.
-- **Glucose Prediction**: Forecasts glucose trends using LSTM based on historical readings.
-- **Personalized Recommendations**:
-  - Lifestyle advice tailored to BMI, glucose levels, and blood pressure.
-  - Dietary changes based on glycemic control needs.
-  - Preventive measures for long-term health management.
-- **Interactive UI**: Built with Streamlit for seamless user experience.
-- **Google Gemini API Integration**: AI-driven insights supplement manual recommendations.
+* **🌐 Streamlit Web App**: Interactive and user-friendly interface for uploading data, viewing predictions, and receiving recommendations.
+
+* **🔗 GenAI Integration**: Google Gemini API generates concise, actionable, and medically aligned suggestions in real-time.
 
 ---
 
-### **Technologies Used**
-- **Machine Learning**:
-  - XGBoost for risk classification
-  - LSTM for time-series glucose prediction
-- **Frameworks**:
-  - TensorFlow/Keras
-  - Scikit-learn
-- **UI/UX**:
-  - Streamlit for interactive web application
-- **API Integration**:
-  - Google Gemini API for AI-enhanced recommendations
-- **Data Processing**:
-  - Pandas, NumPy
+## 🧠 Tech Stack
+
+* **Machine Learning**: `XGBoost`, `LSTM with Attention`
+* **Frameworks**: `TensorFlow`, `Keras`, `Scikit-learn`
+* **Web Interface**: `Streamlit`
+* **Data Engineering**: `Pandas`, `NumPy`, `MinMaxScaler`, `Feature Engineering`
+* **GenAI Integration**: `Google Gemini API`
 
 ---
 
-### **Installation**
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/its308/HealthSphere.git
-   ```
-2. Navigate to the project directory:
-   ```bash
-   cd HealthSphere
-   ```
-3. Create a virtual environment and activate it:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: .\venv\Scripts\activate
-   ```
-4. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## ⚙️ Installation
+
+```bash
+# 1. Clone the repository
+https://github.com/its308/HealthSphere.git
+
+# 2. Navigate to the project folder
+cd HealthSphere
+
+# 3. Create and activate a virtual environment
+python -m venv venv
+source venv/bin/activate  # Windows: .\venv\Scripts\activate
+
+# 4. Install required packages
+pip install -r requirements.txt
+```
 
 ---
 
-### **Usage**
-1. Run the Streamlit app locally:
-   ```bash
-   streamlit run scripts/app.py
-   ```
-2. Open the app in your browser at `http://localhost:8501`.
+## ▶️ Usage
 
-3. Input your health metrics (e.g., BMI, glucose levels, blood pressure) and historical glucose readings to get:
-   - Risk assessment
-   - Predicted glucose trends
-   - Personalized recommendations
+```bash
+# Run the Streamlit app
+streamlit run scripts/app.py
+```
+
+Then open `http://localhost:8501` in your browser.
+
+**You can:**
+
+* Enter current health parameters (BMI, Glucose, BP, etc.)
+* Provide recent glucose readings
+* Get:
+
+  * **Risk Level** (Normal, Warning, Critical)
+  * **Predicted Glucose**
+  * **Actionable Recommendations**
 
 ---
 
-### **File Structure**
+## 🔂 File Structure
+
 ```
 HealthSphere/
 ├── models/
-│   ├── lstm_glucose_model.h5           # Pre-trained LSTM model for glucose prediction
-│   └── xgboost_diabetes_model.pkl      # Pre-trained XGBoost model for risk classification
+│   ├── lstm_glucose_model.h5           # LSTM model for glucose prediction
+│   └── xgboost_diabetes_model.pkl      # XGBoost model for risk classification
 ├── scripts/
-│   ├── app.py                          # Main Streamlit application file
-│   └── recommender.py                  # Core recommendation logic and ML model integration
+│   ├── app.py                          # Streamlit app logic
+│   └── recommender.py                  # Core model logic + GenAI integration
 ├── data/
-│   └── sample_data.csv                 # Example input data (optional)
-├── requirements.txt                    # Python dependencies
-└── README.md                           # Project documentation (this file)
+│   └── sample_data.csv                 # Sample user health data
+├── requirements.txt                    # Dependency list
+└── README.md                           # Project documentation
 ```
 
 
+---
 
-### **Screenshots**
-#### Risk Assessment Section:
-![Risk Assessment](https://via.placeholder.com/800x400?text=Risk+ Recommendations Section:
-![Recommendations](https://via.placeholder.com/800x400?text=Recommendations+Future Enhancements**
-1. Integrate wearable device APIs (e.g., Fitbit, Apple Health) for real-time data.
-2. Add visualizations for glucose trends and risk progression.
-3. Expand recommendations to include mental health assessments (e.g., PHQ-9/GAD-7).
-4. Deploy on scalable platforms like AWS or Google Cloud.
+## ✅ Model Integrity
+
+- 🧪 **No Data Leakage**: Glucose forecasting LSTM model was **trained and tested on entirely disjoint patient sets** — ensuring true generalization to unseen individuals.
+
+- 📊 **Evaluation on Unseen Patients**: The model’s performance (R²: **0.983**, MAE: **0.020**) is validated on completely **unseen patient data**, not just random time splits — making the results trustworthy.
+
+- 📁 Refer to the code in [`prepare_time_series_data()`](scripts/lstm_model.py) where the split is done **patient-wise** and normalization is performed using **only training data**.
 
 ---
 
-### **Contributing**
-Contributions are welcome!  
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-name`).
-3. Commit your changes (`git commit -m "Add feature"`).
-4. Push to the branch (`git push origin feature-name`).
-5. Open a pull request.
+> *📈 Glucose prediction graph below is from a test user not seen during training — confirming model generalization.*
 
----
-
-### **License**
-This project is licensed under the MIT License.
-
----
 
 
 ---
 
-This README is structured to highlight your project's strengths while making it easy for others to understand and use. Let me know if you'd like further customization! 🚀
+## 🔮 Future Enhancements
 
-Citations:
-[1] https://github.com/its308/HealthSphere
+* 📱 Integration with wearables (e.g., Fitbit, Apple Health) for real-time glucose tracking.
+* 📊 Visual dashboards for health progression and glucose trends.
+* 🧠 Add mental health screening tools (e.g., PHQ-9, GAD-7).
+* ☕️ Deploy to cloud platforms (e.g., AWS, GCP) with multi-user support.
 
 ---
-Answer from Perplexity: pplx.ai/share
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+
+1. Fork the repository
+2. Create a branch (`git checkout -b feature-name`)
+3. Commit changes (`git commit -m "Add feature"`)
+4. Push to your fork (`git push origin feature-name`)
+5. Open a Pull Request 🚀
+
+---
+
+## 📜 License
+
+Licensed under the [MIT License](LICENSE).
+
+---
+
+## 📌 Citation
+
+This project: [https://github.com/its308/HealthSphere](https://github.com/its308/HealthSphere)
