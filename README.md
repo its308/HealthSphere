@@ -2,7 +2,7 @@
 
 ## 🚀 Overview
 
-HealthSphere is an intelligent, ML-driven clinical decision support platform designed to predict diabetes risk and provide personalized health guidance. It combines time-series deep learning, risk classification, and GenAI recommendations to enable proactive and informed health management.
+HealthSphere is an AI-powered clinical decision support system that combines deep learning, risk stratification, and generative AI to offer 360° metabolic health insights. It forecasts glucose trends using LSTM with attention, classifies diabetes risk with XGBoost, and delivers personalized health recommendations — blending machine intelligence with medically aligned guidance. Designed for real-world generalization, it ensures zero data leakage through patient-level evaluation, and supports actionable, user-centric healthcare decisions.
 
 📽️ **[Project Demo](https://youtu.be/eKJrDBX-v30)**
 
