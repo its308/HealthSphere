@@ -103,11 +103,19 @@ HealthSphere/
 
 ---
 
-> *📈 Glucose prediction graph below is from a test user not seen during training — confirming model generalization.*
+### 📉 Glucose Forecasting on Unseen Test User
+> *Glucose prediction graph below is from a test user not seen during training — confirming model generalization.*
 
+<img width="800" alt="Risk Assessment Interface" src="https://github.com/user-attachments/assets/91de8061-07f7-4eb1-9ca8-48474b6e209e" />
+
+
+### 🩺 Risk Assessment & Recommendations Interface
+
+<img width="800" alt="Glucose Forecasting" src="https://github.com/user-attachments/assets/ac780d37-4da8-4b3b-b938-91a7516cd1ab" />
 
 
 ---
+
 
 ## 🔮 Future Enhancements
 
